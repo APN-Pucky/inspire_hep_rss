@@ -37,3 +37,9 @@ And add the following line to the crontab file to start the server on boot/user 
 ```
 @reboot ~/.local/bin/inspire_hep_rss
 ```
+
+For more options (i.e. modifying the port, etc.) see the help:
+
+```bash
+inspire_hep_rss --help
+```

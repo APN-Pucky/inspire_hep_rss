@@ -11,6 +11,7 @@ use serde::Deserialize;
 use std::collections::HashMap;
 use std::net::SocketAddr;
 use chrono::{DateTime, TimeZone, Utc};
+use structopt::StructOpt;
 
 #[derive(Deserialize, Debug)]
 struct ApiResponse {
@@ -64,14 +65,30 @@ struct Links {
     bibtex: Option<String>,
 }
 
+#[derive(StructOpt, Debug)]
+#[structopt(name = "rss_server")]
+struct OptConfig {
+    /// IP address to bind to
+    #[structopt(long, default_value = "127.0.0.1")]
+    ip: String,
+
+    /// Port to bind to
+    #[structopt(long, default_value = "3000")]
+    port: u16,
+}
+
 #[tokio::main]
 async fn main() {
+    // Parse command-line arguments
+    let config = OptConfig::from_args();
+
+    // Define the IP and port to bind the server to
+    let addr = SocketAddr::new(config.ip.parse().unwrap(), config.port);
+    println!("Listening on http://{}", addr);
+
     // Define a router with a single route that handles GET requests
     let app = Router::new().route("/", get(handle_request));
 
-    // Define the address and port to bind the server to
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-    println!("Listening on http://{}", addr);
 
     // Run the HTTP server
     axum::Server::bind(&addr)
