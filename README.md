@@ -6,4 +6,6 @@ When adding the RSS feed to e.g. Thunderbird, please keep the update frequency l
 
 Below image shows the feed in Thunderbird.
 
-![Thunderbird](./src/view.png)
+![Thunderbird](./img/view.png)
+
+Thus, it serves as a simple way to keep track of new publications of a given author.
