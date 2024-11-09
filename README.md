@@ -29,5 +29,10 @@ produces a binary in `./target/release/inspire_hep_rss` which can be run on a se
 ```bash
 cp ./target/release/inspire_hep_rss ~/.local/bin/
 crontab -e
+```
+
+And add the following line to the crontab file to start the server on boot/user login:
+
+```
 @reboot ~/.local/bin/inspire_hep_rss
 ```
