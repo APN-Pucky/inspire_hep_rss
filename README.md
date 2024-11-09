@@ -9,6 +9,7 @@ Below image shows the feed in Thunderbird.
 ![Thunderbird](./img/view.png)
 
 Thus, it serves as a simple way to keep track of new publications of a given author.
+Practically it is a subscribe to author feature, which is currently not available on inspireHEP.
 
 ## Usage
 
