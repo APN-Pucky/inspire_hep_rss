@@ -85,7 +85,7 @@ async fn handle_request(Query(params): Query<HashMap<String, String>>) -> Result
     // Construct the InspireHEP API URL with all query parameters forwarded
     let base_url = "https://inspirehep.net/api/literature";
     let url = format!("{}?{}", base_url, serde_urlencoded::to_string(&params).unwrap());
-    println!("Fetching data from: {}", url);
+    //println!("Fetching data from: {}", url);
 
     // Fetch data from the InspireHEP API
     let api_response = match fetch_data(&url).await {
@@ -95,9 +95,6 @@ async fn handle_request(Query(params): Query<HashMap<String, String>>) -> Result
 
     // Convert the data to RSS format
     let rss_feed = generate_rss_feed(api_response);
-
-    // print the RSS feed to stdout
-    println!("{}", rss_feed);
 
     // Return the RSS feed as an XML response
     Ok(rss_feed.into_response())
