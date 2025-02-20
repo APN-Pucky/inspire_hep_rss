@@ -6,7 +6,7 @@ use axum::{
     Router,
 };
 use reqwest::Error as ReqwestError;
-use rss::{ChannelBuilder, Item, ItemBuilder};
+use rss::{ChannelBuilder, Guid, Item, ItemBuilder};
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::net::SocketAddr;
@@ -167,7 +167,12 @@ fn convert_to_rss_item(hit: &Hit) -> Item {
     // Format it to the RFC 822 format required by RSS (like "Tue, 02 Apr 1991 00:00:00 +0000")
     let rss_date = datetime.format("%a, %d %b %Y %H:%M:%S %z").to_string();
 
+    let mut guid :Guid = Guid::default();
+    guid.set_permalink(true);
+    guid.set_value(link.clone());
+
     ItemBuilder::default()
+        .guid(Some(guid))
         .title(Some(title))
         .link(Some(link))
         .description(Some(description))
