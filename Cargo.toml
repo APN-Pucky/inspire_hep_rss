@@ -1,7 +1,13 @@
 [package]
 name = "inspire_hep_rss"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
+license-file = "LICENSE"
+description = "Rust RSS server that queries the InspireHEP API"
+homepage = "https://github.com/APN-Pucky/inspire_hep_rss"
+repository = "https://github.com/APN-Pucky/inspire_hep_rss"
+readme = "README.md"
+
 
 [dependencies]
 axum = "0.6"
