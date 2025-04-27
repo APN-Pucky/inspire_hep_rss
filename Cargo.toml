@@ -7,6 +7,10 @@ description = "Rust RSS server that queries the InspireHEP API"
 homepage = "https://github.com/APN-Pucky/inspire_hep_rss"
 repository = "https://github.com/APN-Pucky/inspire_hep_rss"
 readme = "README.md"
+exclude = [
+	".github/",
+	"img/",
+]
 
 
 [dependencies]
