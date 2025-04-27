@@ -24,7 +24,6 @@ starts the server on http://127.0.0.1:3000/ allowing only access from localhost.
 ## Configuration
 
 ```bash
-cp ./target/release/inspire_hep_rss ~/.local/bin/
 crontab -e
 ```
 
@@ -53,3 +52,9 @@ cargo build --release
 ```
 
 produces a binary in `./target/release/inspire_hep_rss` which can be run on a server.
+
+```
+cp ./target/release/inspire_hep_rss ~/.local/bin/
+```
+
+and adjust the crontab path.
